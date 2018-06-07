@@ -1,0 +1,26 @@
+<?php
+require('db/normal_import.php');
+require('includes/global.php');
+
+$memberID = trim($_GET['x']);
+$active = trim($_GET['y']);
+
+if(is_numeric($memberID) && !empty($active)){
+
+	$stmt = $db->prepare("UPDATE mitglieder SET active = 'Yes' WHERE memberID = :memberID AND active = :active");
+	$stmt->execute(array(
+		':memberID' => $memberID,
+		':active' => $active
+	));
+
+	if($stmt->rowCount() == 1){
+
+		header('Location: login.php?action=active');
+		exit;
+
+	} else {
+		echo "Dein Account konnte nicht verifiziert werden!"; 
+	}
+	
+}
+?>
