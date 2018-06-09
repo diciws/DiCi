@@ -1,6 +1,7 @@
 <?php
 require('db/normal_import.php');
 require('includes/global.php');
+require('assets/language/'.$config["settings"]["language"].'.php'); //get language
 
 $memberID = trim($_GET['x']);
 $active = trim($_GET['y']);
@@ -19,7 +20,7 @@ if(is_numeric($memberID) && !empty($active)){
 		exit;
 
 	} else {
-		echo "Dein Account konnte nicht verifiziert werden!"; 
+		echo $lang["activate"]["errorverify"]; 
 	}
 	
 }

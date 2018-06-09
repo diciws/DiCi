@@ -1,34 +1,35 @@
 <?php 
 require('db/normal_import.php');
 require('includes/global.php');
+require('assets/language/'.$config["settings"]["language"].'.php'); //get language
 
 if( $user->is_logged_in() ){ header('Location: ./control/user'); }
 
 if(isset($_POST['submit'])){
 
 	if(strlen($_POST['username']) < 3){
-		$error[] = 'Der Nutzername ist zu kurz.';
+		$error[] = $lang["register"]["nametooshort"];
 	} else {
 		$stmt = $db->prepare('SELECT username FROM mitglieder WHERE username = :username');
 		$stmt->execute(array(':username' => $_POST['username']));
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		if(!empty($row['username'])){
-			$error[] = 'Der Nutzername wird bereits benutzt.';
+			$error[] = $lang["register"]["isalredyused"];
 		}
 
 	}
 
 	if(strlen($_POST['password']) < 3){
-		$error[] = 'Passwort ist zu kurz.';
+		$error[] = $lang["register"]["pwtoshort"];
 	}
 
 	if(strlen($_POST['passwordConfirm']) < 3){
-		$error[] = 'Bestätige das Passwort, es ist zu kurz.';
+		$error[] = $lang["register"]["confpwisshort"];
 	}
 
 	if($_POST['password'] != $_POST['passwordConfirm']){
-		$error[] = 'Passwort stimmt nicht überein.';
+		$error[] = $lang["register"]["pwnmatch"];
 	}
 
 	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
@@ -39,7 +40,7 @@ if(isset($_POST['submit'])){
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		if(!empty($row['email'])){
-			$error[] = 'Email wird bereits benutzt.';
+			$error[] = $lang["register"]["emailaused"];
 		}
 
 	}
@@ -64,10 +65,9 @@ if(isset($_POST['submit'])){
 			$id = $db->lastInsertId('memberID');
 
 			$to = $_POST['email'];
-			$subject = "Registrierung";
-			$body = "<p>Danke für dein Interesse am Netzwerk.</p>
-			<p>Um dein Account zu verifizieren klicke auf den folgenden Link: <a href='".DIR."activate.php?x=$id&y=$activasion'>".DIR."activate.php?x=$id&y=$activasion</a></p>
-			<p>Mit freundlichen Grüßen</p>";
+			$subject = $lang["registeremail"]["titlerp"];
+			$body = $lang["registeremail"]["body1"].$lang["registeremail"]["registerlink"].": <a href='".DIR."activate.php?x=$id&y=$activasion'>".DIR."activate.php?x=$id&y=$activasion</a></p>"
+			.$lang["registeremail"]["greetings"];
 
 
 			$mail = new Mail();
@@ -97,8 +97,8 @@ require('layout/header.php');
 			<div> <br></div>
 			
 			<form role="form" method="post" action="" autocomplete="off">
-				<h2>Bitte registriere dich hier!</h2>
-				<p>Du bist schon registriert? <a href='login.php'>Login</a></p>
+				<h2><?php echo $lang["register"]["title"]; ?></h2>
+				<p><?php echo $lang["register"]["r2"]; ?> <a href='login.php'><?php echo $lang["register"]["login"]; ?></a></p>
 				<hr>
 
 				<?php
@@ -109,31 +109,31 @@ require('layout/header.php');
 				}
 
 				if(isset($_GET['action']) && $_GET['action'] == 'joined'){
-					echo "<h2 class='bg-success'>Registrierung ist erfolgreich, bitte überprüfe deinen E-Mail Ordner um deine E-Mail zu verifizieren.</h2>";
+					echo "<h2 class='bg-success'>".$lang["register"]["succesregister"]."</h2>";
 				}
 				?>
 
 				<div class="form-group">
-					<input type="text" name="username" id="username" class="form-control input-lg" placeholder="Username" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
+					<input type="text" name="username" id="username" class="form-control input-lg" placeholder="<?php echo $lang["register"]["username"]; ?>" value="<?php if(isset($error)){ echo $_POST['username']; } ?>" tabindex="1">
 				</div>
 				<div class="form-group">
-					<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Adresse" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="2">
+					<input type="email" name="email" id="email" class="form-control input-lg" placeholder="<?php echo $lang["register"]["emailadress"]; ?>" value="<?php if(isset($error)){ echo $_POST['email']; } ?>" tabindex="2">
 				</div>
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<div class="form-group">
-							<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Passwort" tabindex="3">
+							<input type="password" name="password" id="password" class="form-control input-lg" placeholder="<?php echo $lang["register"]["password"]; ?>" tabindex="3">
 						</div>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<div class="form-group">
-							<input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Passwort bestätigen" tabindex="4">
+							<input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="<?php echo $lang["register"]["confirmpassword"]; ?>" tabindex="4">
 						</div>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Registrieren" class="red" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
+					<div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="<?php echo $lang["register"]["submitregister"]; ?>" class="red" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
 				</div>
 			</form>
 		</div>

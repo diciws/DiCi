@@ -1,20 +1,21 @@
 <?php 
 require('db/normal_import.php');
 require('includes/global.php');
+require('assets/language/'.$config["settings"]["language"].'.php'); //get language
 
 if( $user->is_logged_in() ){ header('Location: ./control/user'); }
 
 if(isset($_POST['submit'])){
 
 	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-	    $error[] = 'Bitte gib eine richtige Email Adresse ein.';
+	    $error[] = $lang["resetpw"]["emailfail"];
 	} else {
 		$stmt = $db->prepare('SELECT email FROM mitglieder WHERE email = :email');
 		$stmt->execute(array(':email' => $_POST['email']));
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		if(empty($row['email'])){
-			$error[] = 'Die E-Mail Adresse wird benötigt.';
+			$error[] = $lang["resetpw"]["emailisneeded"];
 		}
 
 	}
@@ -32,10 +33,8 @@ if(isset($_POST['submit'])){
 			));
 
 			$to = $row['email'];
-			$subject = "Passwort-Zurücksetzung";
-			$body = "<p>Jemand hat eine Anfrage gestellt dein Passwort zurückzusetzen.</p>
-			<p>Wenn dies ein Fehler sein sollte, ignoriere diese Email.</p>
-			<p>Um dein Passwort zurückzusetzen klicke auf den folgenden Link: <a href='".DIR."resetPassword.php?key=$token'>".DIR."resetPassword.php?key=$token</a></p>";
+			$subject = $lang["resetpwemail"]["titlerp"];
+			$body = $lang["resetpwemail"]["body1"].$lang["resetpwemail"]["resetlink"].": <a href='".DIR."resetPassword.php?key=$token'>".DIR."resetPassword.php?key=$token</a></p>";
 
 			$mail = new Mail();
 			$mail->setFrom(SITEEMAIL);
@@ -67,8 +66,8 @@ require('layout/header.php');
 			
 			<form role="form" method="post" action="" autocomplete="off">
 			<div> <br></div>
-				<h2>Passwort zurücksetzen</h2>
-				<p><a href='login.php'>Zurück zum Login</a></p>
+				<h2><?php echo $lang["resetpw"]["title"]; ?></h2>
+				<p><a href='login.php'><?php echo $lang["resetpw"]["r2"]; ?></a></p>
 				<hr>
 
 				<?php
@@ -82,22 +81,22 @@ require('layout/header.php');
 
 					switch ($_GET['action']) {
 						case 'active':
-							echo "<h2 class='bg-success'>Dein Account ist nun verifiziert, du kannst dich nun einloggen.</h2>";
+							echo "<h2 class='bg-success'>".$lang["resetpw"]["succeslogin"];."</h2>";
 							break;
 						case 'reset':
-							echo "<h2 class='bg-success'>Bitte überprüfe deinen E-Mail Ordner nach den Zurücksetzungslink.</h2>";
+							echo "<h2 class='bg-success'>".$lang["resetpw"]["resetpwemailfolder"];."</h2>";
 							break;
 					}
 				}
 				?>
 
 				<div class="form-group">
-					<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email" value="" tabindex="1">
+					<input type="email" name="email" id="email" class="form-control input-lg" placeholder="<?php echo $lang["resetpw"]["username"]; ?>" value="" tabindex="1">
 				</div>
 
 				<hr>
 				<div class="row">
-					<div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Link absenden" class="red" class="btn btn-primary btn-block btn-lg" tabindex="2"></div>
+					<div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="<?php echo $lang["resetpw"]["sendlink"]; ?>" class="red" class="btn btn-primary btn-block btn-lg" tabindex="2"></div>
 				</div>
 			</form>
 		</div>

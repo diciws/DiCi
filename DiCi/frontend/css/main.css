@@ -1,15 +1,5 @@
-body {
-  background-color:white;
-  display:inline-block;
-}
-
-body,
-html {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
+@charset "UTF-8";
+@import url(general.css);
 
 .start{
   width:100%;

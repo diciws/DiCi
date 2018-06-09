@@ -1,6 +1,7 @@
 <?php 
 require('db/normal_import.php'); 
 require('includes/global.php');
+require('assets/language/'.$config["settings"]["language"].'.php'); //get language
 
 if( $user->is_logged_in() ){ header('Location: ./control'); } 
 
@@ -9,23 +10,23 @@ $stmt->execute(array(':token' => $_GET['key']));
 $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if(empty($row['resetToken'])){
-	$stop = 'Falscher LoginToken, benutze bitte den in deinem E-Mail Ordner.';
+	$stop = $lang["resetverifiedpw"]["falsetoken"];
 } elseif($row['resetComplete'] == 'Yes') {
-	$stop = 'Dein Passwort wurde bereits geändert.';
+	$stop = $lang["resetverifiedpw"]["justeditedpassword"];
 }
 
 if(isset($_POST['submit'])){
 
 	if(strlen($_POST['password']) < 3){
-		$error[] = 'Das Passwort ist zu kurz.';
+		$error[] = $lang["resetverifiedpw"]["passwordtooshort"];
 	}
 
 	if(strlen($_POST['passwordConfirm']) < 3){
-		$error[] = 'Bestätigungs Passwort ist zu kurz.';
+		$error[] = $lang["resetverifiedpw"]["confirmpasswordtooshort"];
 	}
 
 	if($_POST['password'] != $_POST['passwordConfirm']){
-		$error[] = 'Passwort stimmt nicht überein.';
+		$error[] = $lang["resetverifiedpw"]["passwordnmatch"];
 	}
 
 	if(!isset($error)){
@@ -68,7 +69,7 @@ require('layout/header.php');
 	    	} else { ?>
 
 				<form role="form" method="post" action="" autocomplete="off">
-					<h2>Passwort ändern</h2>
+					<h2><?php echo $lang["resetverifiedpw"]["title"]; ?></h2>
 					<hr>
 
 					<?php
@@ -82,10 +83,10 @@ require('layout/header.php');
 
 					switch ($_GET['action']) {
 						case 'active':
-							echo "<h2 class='bg-success'>Dein Account ist nun verifiziert, du kannst dich nun einloggen.</h2>";
+							echo "<h2 class='bg-success'>".$lang["resetpw"]["succeslogin"];."</h2>";
 							break;
 						case 'reset':
-							echo "<h2 class='bg-success'>Bitte überprüfe deinen E-Mail Ordner nach dem Zurücksetzungslink.</h2>";
+							echo "<h2 class='bg-success'>".$lang["resetpw"]["resetpwemailfolder"];."</h2>";
 							break;
 					}
 					?>
@@ -93,19 +94,19 @@ require('layout/header.php');
 					<div class="row">
 						<div class="col-xs-6 col-sm-6 col-md-6">
 							<div class="form-group">
-								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Passwort" tabindex="1">
+								<input type="password" name="password" id="password" class="form-control input-lg" placeholder="<?php echo $lang["resetverifiedpw"]["Password"]; ?>" tabindex="1">
 							</div>
 						</div>
 						<div class="col-xs-6 col-sm-6 col-md-6">
 							<div class="form-group">
-								<input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="Passwort bestätigen" tabindex="1">
+								<input type="password" name="passwordConfirm" id="passwordConfirm" class="form-control input-lg" placeholder="<?php echo $lang["resetverifiedpw"]["confirmpassword"]; ?>" tabindex="1">
 							</div>
 						</div>
 					</div>
 					
 					<hr>
 					<div class="row">
-						<div class="col-xs-6 col-md-6"><input type="submit" name="Bestätigen" value="Change Password" class="btn btn-primary btn-block btn-lg" tabindex="3"></div>
+						<div class="col-xs-6 col-md-6"><input type="submit" name="Bestätigen" value="<?php echo $lang["resetverifiedpw"]["changepassword"]; ?>" class="btn btn-primary btn-block btn-lg" tabindex="3"></div>
 					</div>
 				</form>
 
