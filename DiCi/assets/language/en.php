@@ -84,9 +84,20 @@ $lang["resetverifiedpw"]["passwordnmatch"] = "The Passwords do not match!";
 
 $lang["activate"]["errorverify"] = "Your Email couldn't get verified!";
 
+/************* Control-Site *************/
 
+    /************* Admin-Site *************/
 
-
+    $lang["admin"]["welcome"] = "Your Email couldn't get verified!";
+    $lang["admin"]["text1"] = "<p>This is a cool Project from me! Have fun!</p>";
+    $lang["admin"]["permissions"] = "Your permissions: ";
+    $lang["admin"]["getid"] = "Your permissions: ";
+    
+        //admin profile
+        $lang["admin"]["profile"] = "Your Profile";
+        $lang[""][""] = "";
+        $lang[""][""] = "";
+        $lang[""][""] = "";
 
 
 
