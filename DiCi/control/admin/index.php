@@ -26,10 +26,8 @@ include('layout/navigation.php');
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<br>
 
-				<h2><?php echo $lang["admin"]["welcome"];?> <b><?php echo $_SESSION['username']; ?></b>!</h2>
-				
-				<p><?php echo $lang["admin"]["getid"]; ?> <?php echo $_SESSION['memberID']; ?></p>	
-				<p><?php echo $lang["admin"]["permissions"]; ?> <?php echo $_SESSION['permission']; ?></p>	
+				<h2><?php echo $lang["admininterface"]["welcome"];?> <b><?php echo $_SESSION['username']; ?></b>!</h2>
+				<p><?php echo $lang["admininterface"]["text1"]; ?></p>
 				
 				<hr>
 				

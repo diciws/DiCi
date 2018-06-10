@@ -8,6 +8,8 @@
 
 $lang["general"]["langcode"] = "en_EN";
 $lang["general"]["error"] = "There was an Error, please contact the Web-Administrator!";
+
+//login error
 $lang["general"]["loginerror"] = "False Username or Password! Please try again in a few minutes!";
 
 /************* Registration-Site *************/
@@ -35,6 +37,7 @@ $lang["register"]["pwtoshort"] = "The Password is to short!";
 $lang["register"]["confpwisshort"] = "The confirmed Password is to short!";
 $lang["register"]["pwnmatch"] = "The Password do not match the confirmed Password!";
 $lang["register"]["emailaused"] = "The Email is already in use!";
+$lang["register"]["emailisnright"] = "Please enter a valid email";
 
 /************* Login-Site *************/
 
@@ -88,17 +91,59 @@ $lang["activate"]["errorverify"] = "Your Email couldn't get verified!";
 
     /************* Admin-Site *************/
 
-    $lang["admin"]["welcome"] = "Your Email couldn't get verified!";
-    $lang["admin"]["text1"] = "<p>This is a cool Project from me! Have fun!</p>";
-    $lang["admin"]["permissions"] = "Your permissions: ";
-    $lang["admin"]["getid"] = "Your permissions: ";
+    $lang["admininterface"]["welcome"] = "Welcome to DiCi, ";
+    $lang["admininterface"]["text1"] = "<p>This is a cool Project from me! Have fun!</p>";
+    $lang["admininterface"]["admininterface"] = "Admin - Interface";
+
+        
+        //navigation
+        $lang["adminnavigation"]["home"] = "Home";
+        $lang["adminnavigation"]["profile"] = "Profile";
+        $lang["adminnavigation"]["stats"] = "Stats/Badges";
+        $lang["adminnavigation"]["apply"] = "Application";
+        $lang["adminnavigation"]["logout"] = "logout";
     
         //admin profile
-        $lang["admin"]["profile"] = "Your Profile";
-        $lang[""][""] = "";
-        $lang[""][""] = "";
-        $lang[""][""] = "";
+        $lang["adminprofile"]["profile"] = "Your Profile";
+        $lang["adminprofile"]["permissions"] = "Your permissions: ";
+        $lang["adminprofile"]["getid"] = "Your ID: ";
+        $lang["adminprofile"]["ipadress"] = "IP-Adress: ";
 
+    /************* Mod-Site *************/
 
+    $lang["modinterface"]["welcome"] = "Welcome to DiCi, ";
+    $lang["modinterface"]["text1"] = "<p>This is a cool Project from me! Have fun!</p>";
+    $lang["modinterface"]["modinterface"] = "Mod - Interface";
+        
+        //navigation
+        $lang["modinterface"]["home"] = "Home";
+        $lang["modinterface"]["profile"] = "Profile";
+        $lang["modinterface"]["stats"] = "Stats/Badges";
+        $lang["modinterface"]["apply"] = "Application";
+        $lang["modinterface"]["logout"] = "logout";
+    
+        //mod profile
+        $lang["modinterface"]["profile"] = "Your Profile";
+        $lang["modinterface"]["permissions"] = "Your permissions: ";
+        $lang["modinterface"]["getid"] = "Your ID: ";
+        $lang["modinterface"]["ipadress"] = "IP-Adress: ";
 
+    /************* User-Site *************/
+
+    $lang["userinterface"]["welcome"] = "Welcome to DiCi, ";
+    $lang["userinterface"]["text1"] = "<p>This is a cool Project from me! Have fun!</p>";
+    $lang["userinterface"]["userinterface"] = "User - Interface";
+        
+        //navigation
+        $lang["userinterface"]["home"] = "Home";
+        $lang["userinterface"]["profile"] = "Profile";
+        $lang["userinterface"]["stats"] = "Stats/Badges";
+        $lang["userinterface"]["apply"] = "Application";
+        $lang["userinterface"]["logout"] = "logout";
+    
+        //mod profile
+        $lang["userinterface"]["profile"] = "Your Profile";
+        $lang["userinterface"]["permissions"] = "Your permissions: ";
+        $lang["userinterface"]["getid"] = "Your ID: ";
+        $lang["userinterface"]["ipadress"] = "IP-Adress: ";
 

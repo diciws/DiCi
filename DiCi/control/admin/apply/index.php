@@ -1,6 +1,7 @@
 <?php 
 include('../../../db/profile_import.php'); 
 include('../../../includes/global.php');
+require('../../../assets/language/'.$config["settings"]["language"].'.php'); //import 
 
 //set my permissions -> Security redirect :3
 if(empty($_SESSION['permission'])){

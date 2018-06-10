@@ -18,20 +18,14 @@ Websystem 1.0
 
 </ul>
 
-<h2>Installation (Debian)</h2>
-
-<ul>
-    <li></li>
-</ul>
-
 <h1>Author</h1>
 
-<p>This source was created by - @diciws</p>
+<p>This source was created by - <a href="https://github.com/diciws">@diciws</a></p>
 
 </h2>Translator</h2>
 
-<p>German translation - @Brain23413</p>
-<p>English translation - @diciws</p>
+<p>German translation - <a href="https://github.com/Brain23413">@Brain23413</a></p>
+<p>English translation - <a href="https://github.com/diciws">@diciws</a></p>
 
 
 <h1>License</h1>

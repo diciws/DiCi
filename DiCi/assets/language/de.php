@@ -1,6 +1,5 @@
 <?php
 /*
- * Created by Brain23413 on 09.06.2018
  * German version by Brain23413 
 */
 
@@ -35,6 +34,7 @@ $lang["register"]["pwtoshort"] = "Das Passwort ist zu kurz!";
 $lang["register"]["confpwisshort"] = "Das Bestätigungs Passwort ist zu kurz!";
 $lang["register"]["pwnmatch"] = "Das Passwort stimmt nicht mit dem Bestätigungs-Passwort überein!";
 $lang["register"]["emailaused"] = "Die Email wird bereits genutzt!";
+$lang["register"]["emailisnright"] = "Bitte gib eine gültige Email ein!";
 
 /************* Login-Site *************/
 
@@ -82,3 +82,64 @@ $lang["resetverifiedpw"]["passwordnmatch"] = "Die Passwörter stimmen nicht übe
 /************* Activation-Site *************/
 
 $lang["activate"]["errorverify"] = "Deine Email konnte nicht verifiziert werden!";
+
+/************* Control-Site *************/
+
+    /************* Admin-Site *************/
+
+    $lang["admininterface"]["welcome"] = "Willkommen bei DiCi, ";
+    $lang["admininterface"]["text1"] = "<p>Das ist ein cooles Projekt von mir! Viel Spaß!</p>";
+    $lang["admininterface"]["admininterface"] = "Admin - Interface";
+
+        
+        //navigation
+        $lang["adminnavigation"]["home"] = "Startseite";
+        $lang["adminnavigation"]["profile"] = "Profil";
+        $lang["adminnavigation"]["stats"] = "Statistiken/Abzeichen";
+        $lang["adminnavigation"]["apply"] = "Bewerbungen";
+        $lang["adminnavigation"]["logout"] = "logout";
+    
+        //admin profile
+        $lang["adminprofile"]["profile"] = "Dein Profil";
+        $lang["adminprofile"]["permissions"] = "Deine Rechte: ";
+        $lang["adminprofile"]["getid"] = "Deine ID: ";
+        $lang["adminprofile"]["ipadress"] = "IP-Adresse: ";
+
+    /************* Mod-Site *************/
+
+    $lang["admininterface"]["welcome"] = "Willkommen bei DiCi, ";
+    $lang["admininterface"]["text1"] = "<p>Das ist ein cooles Projekt von mir! Viel Spaß!</p>";
+    $lang["modinterface"]["modinterface"] = "Mod - Interface";
+        
+        //navigation
+        $lang["modinterface"]["home"] = "Startseite";
+        $lang["modinterface"]["profile"] = "Profil";
+        $lang["modinterface"]["stats"] = "Statistiken/Abzeichen";
+        $lang["modinterface"]["apply"] = "Bewerbungen";
+        $lang["modinterface"]["logout"] = "logout";
+    
+        //mod profile
+        $lang["modinterface"]["profile"] = "Dein Profil";
+        $lang["modinterface"]["permissions"] = "Deine Rechte: ";
+        $lang["modinterface"]["getid"] = "Deine ID: ";
+        $lang["modinterface"]["ipadress"] = "IP-Adresse: ";
+
+    /************* User-Site *************/
+
+    $lang["admininterface"]["welcome"] = "Willkommen bei DiCi, ";
+    $lang["admininterface"]["text1"] = "<p>Das ist ein cooles Projekt von mir! Viel Spaß!</p>";
+    $lang["userinterface"]["userinterface"] = "User - Interface";
+        
+        //navigation
+        $lang["userinterface"]["home"] = "Startseite";
+        $lang["userinterface"]["profile"] = "Profil";
+        $lang["userinterface"]["stats"] = "Statistiken/Abzeichen";
+        $lang["userinterface"]["apply"] = "Bewerbungen";
+        $lang["userinterface"]["logout"] = "logout";
+    
+        //mod profile
+        $lang["userinterface"]["profile"] = "Dein Profil";
+        $lang["userinterface"]["permissions"] = "Deine Rechte: ";
+        $lang["userinterface"]["getid"] = "Deine ID: ";
+        $lang["userinterface"]["ipadress"] = "IP-Adresse: ";
+

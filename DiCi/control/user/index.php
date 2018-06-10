@@ -1,6 +1,7 @@
 <?php 
 include('../../db/control_import.php'); 
 include('../../includes/global.php');
+require('../../assets/language/'.$config["settings"]["language"].'.php'); //import language
 
 //set my permissions -> Security redirect :3
 if($_SESSION['permission'] == "Admin"){
@@ -26,10 +27,8 @@ include('layout/navigation.php');
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 			<br>
 
-				<h2>Servus <b><?php echo $_SESSION['username']; ?></b>!</h2>
-				<p>Das ist ein schönes Projekt von mir! Viel Spaß.</p>
-				<p>Deine ID: <?php echo $_SESSION['memberID']; ?></p>	
-				<p>Deine Permission: <?php echo $_SESSION['permission']; ?></p>	
+				<h2><?php echo $lang["userinterface"]["welcome"];?> <b><?php echo $_SESSION['username']; ?></b>!</h2>
+				<p><?php echo $lang["userinterface"]["text1"]; ?></p>
 				
 				<hr>
 				

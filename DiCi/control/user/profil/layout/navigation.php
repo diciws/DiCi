@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="row">
-		<h2>User - Interface</h2>
+		<h2><?php echo $lang["userinterface"]["userinterface"];?></h2>
 	</div>
 	<div class="row">
 		<div class="profile_info">

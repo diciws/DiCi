@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="row">
-		<h2>User - Interface</h2>
+		<h2><?php echo $lang["userinterface"]["userinterface"];?></h2>
 	</div>
 	<div class="row">
 		<div class="profile_info">
@@ -16,11 +16,11 @@
 		<div>
 		
 			<br>
-			<a href="./">Startseite</a>
-			<a href="./profil">Profil</a>
-			<a href="./stats">Stats</a>
-			<a href="./apply">Bewerbungen</a>
-			<a href="../../logout.php" style="color: red;">logout</a>
+			<a href="./"><?php echo $lang["userinterface"]["home"]; ?></a>
+			<a href="./profil"><?php echo $lang["userinterface"]["profile"]; ?></a>
+			<a href="./stats"><?php echo $lang["userinterface"]["stats"]; ?></a>
+			<a href="./apply"><?php echo $lang["userinterface"]["apply"]; ?></a>
+			<a href="../../logout.php" style="color: red;"><?php echo $lang["userinterface"]["logout"]; ?></a>
 		</div>
 	
 		</div>

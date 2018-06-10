@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
 	}
 
 	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-	    $error[] = 'Bitte gib eine gültige Email-Adresse ein.';
+	    $error[] = $lang["register"]["emailisnright"];
 	} else {
 		$stmt = $db->prepare('SELECT email FROM mitglieder WHERE email = :email');
 		$stmt->execute(array(':email' => $_POST['email']));
