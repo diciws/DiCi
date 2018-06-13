@@ -109,6 +109,10 @@ $lang["activate"]["errorverify"] = "Your Email couldn't get verified!";
         $lang["adminprofile"]["getid"] = "Your ID: ";
         $lang["adminprofile"]["ipadress"] = "IP-Adress: ";
 
+        //admin stats
+        $lang["admininterface"]["stats"] = "Your achieved Badges";
+        $lang["admininterface"]["statsfirstlogin"] = "You achieved:";
+
     /************* Mod-Site *************/
 
     $lang["modinterface"]["welcome"] = "Welcome to DiCi, ";

@@ -21,7 +21,7 @@ include('layout/navigation.php');
 	<div class="row">
 	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 				<br>
-				<h3><?php echo $lang["modinterface"]["profile"]; ?></h2>
+				<h3><?php echo $lang["modinterface"]["profile"]; ?></h3>
 				<p>Benutzername: <b><?php echo $_SESSION['username']; ?></b></p>
 				<p>Minecraft Ingame-Name: <b><?php echo $_SESSION['username']; ?></b></p>
 				<p><?php echo $lang["modinterface"]["getid"]; ?> <?php echo $_SESSION['memberID']; ?></p>	

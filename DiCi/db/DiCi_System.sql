@@ -35,3 +35,13 @@ CREATE TABLE IF NOT EXISTS `supbewerber` (
   `abschlswort` varchar(255) NOT NULL,
     PRIMARY KEY (`supbewerberID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `badges` (
+  `badgesID` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `firstlogin` varchar(255) NOT NULL,
+  `verifyiedaccount` varchar(255) NOT NULL,
+  `firstapply` varchar(255) NOT NULL,
+    PRIMARY KEY (`badgesID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
