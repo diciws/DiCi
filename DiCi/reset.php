@@ -81,10 +81,10 @@ require('layout/header.php');
 
 					switch ($_GET['action']) {
 						case 'active':
-							echo "<h2 class='bg-success'>".$lang["resetpw"]["succeslogin"];."</h2>";
+							echo "<h2 class='bg-success'>".$lang["resetpw"]["succeslogin"]."</h2>";
 							break;
 						case 'reset':
-							echo "<h2 class='bg-success'>".$lang["resetpw"]["resetpwemailfolder"];."</h2>";
+							echo "<h2 class='bg-success'>".$lang["resetpw"]["resetpwemailfolder"]."</h2>";
 							break;
 					}
 				}

@@ -23,18 +23,8 @@ if(isset($_POST['submit'])){
 			header('Location: ./control/user');
 			exit;
 		}
-        
-        $loginname = $_SESSION['username'];
-        $firstlogin = 'Yes';
-        //MYSQL
-        try {
-            $sql = "INSERT INTO badges (name, firstlogin) VALUES (:name, :firstlogin)";
-            $stmt = $db->prepare($sql);
-            $stmt->execute(array("name" => $loginname, "firstlogin" => $firstlogin));
-        } catch (PDOException $e) {
-            echo "DB Error -> Insert Badges!";
-        }
-        
+                        
+
 	} else {
 		$error[] = $lang["general"]["loginerror"];
 	}

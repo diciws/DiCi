@@ -32,10 +32,10 @@ include('layout/navigation.php');
 				<p></p>
                 <?php
                     
-                    if($row['firstlogin'] == 'Yes'){
-                        echo $lang["admininterface"]["statsfirstlogin"].' <b>First Login</b></p>';
+            		if(!empty($row['firstlogin'])){
+                        echo $lang["admininterface"]["statsfirstlogin"].' <b>First Login</b> - <b>'.date('d M Y', strtotime($row['firstlogin'])).'</b></p>';
                     }
-                    
+
                 ?>
 
             

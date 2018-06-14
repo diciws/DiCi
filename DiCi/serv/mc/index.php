@@ -21,5 +21,7 @@ if(!empty($config["database"]["minecraft"])) { //check if mc-server is enabled i
         //If the db table for the MC-Server doesn't exists do nothing
     }
 
+}else{
+	
+	echo 'MC - Server not used! See -> ./includes/global.php';
 }
-

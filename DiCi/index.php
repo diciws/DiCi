@@ -48,6 +48,20 @@ if(isset($_POST['submit'])){
 
 	if(!isset($error)){
 
+        $loginname = $_POST['username'];
+        $firstlogin = date('Y-m-d H:i:s');
+        //MYSQL
+        try {
+            $sql = "INSERT INTO badges (name, firstlogin) VALUES (:name, :firstlogin)";
+            $stmt = $db->prepare($sql);
+            $stmt->execute(array("name" => $loginname, "firstlogin" => $firstlogin));
+
+        } catch (PDOException $e) {
+            echo "DB Error -> Insert Badges!";
+        }
+        
+                         
+                         
 		$hashedpassword = $user->password_hash($_POST['password'], PASSWORD_BCRYPT);
 		$activasion = md5(uniqid(rand(),true));
 		$ip  = $_SERVER['REMOTE_ADDR'];
